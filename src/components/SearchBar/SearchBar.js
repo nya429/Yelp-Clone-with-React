@@ -20,7 +20,7 @@ class SearchBar extends React.Component {
        "Highest Rated":"rating",
        "Most Reviewed":"review_count"
      }
-     //this.getSortByClass = this.getSortByClass.bind(this); //check if say so
+
      this.handleLocationChange = this.handleLocationChange.bind(this);
      this.handleTermChange = this.handleTermChange.bind(this);
      this.handleSearch = this.handleSearch.bind(this);
@@ -53,11 +53,11 @@ class SearchBar extends React.Component {
   }
 
   renderSortOptions() {
-      return Object.keys(sortByOptions).map(sortByOption => {   //ask why Object
+      return Object.keys(sortByOptions).map(sortByOption => {
         let sortByOptionValue = sortByOptions[sortByOption];
           return (
                         <li onClick={this.handleSortByChange.bind(this,sortByOptionValue)}
-                        className={this.getSortByClass(sortByOptionValue)}   ////check if say so  why classNAme 可以不用this
+                        className={this.getSortByClass(sortByOptionValue)}
                         key={sortByOptionValue}>{sortByOption}
                         </li>
                       );
