@@ -2,7 +2,6 @@ const clientId = 'Bi10Mnj4rw_Bg7F5j6naVA';
 const secret = '5DwO4dZ52wIzKncCXRl7xVgdZeiNJveKsvTRSSrcT7HewzHtk5OcNvftCKbnuwQt';
 let accessToken;
 
-
 const Yelp = {
       getAccessToken() {  //why use dot ? .method()
         if (accessToken) {
@@ -23,22 +22,22 @@ const Yelp = {
               headers:{Authorization:`Bearer ${accessToken}`}
           });
         }).then(
-          response => {return response.json();}  //return
+          response => response.json()  //return
         ).then(
           jsonResponse =>{
             if(jsonResponse.businesses) {
-
+              console.log(jsonResponse.businesses);
               return jsonResponse.businesses.map(business => ({
                   id:business.id,
                   imageSrc:business.image_url,
                   name:business.name,
-                  address:business.address,
-                  city:business.city,
-                  state:business.ctate,
-                  zipCode:business.zipCode,
-                  category:business.category,
+                  address:business.location.address1,
+                  city:business.location.city,
+                  state:business.location.state,
+                  zipCode:business.zip_code,
+                  category:business.categories,
                   rating:business.rating,
-                  reviewCount:business.reviewCount
+                  reviewCount:business.review_count
                 }));
             }
         });

@@ -12,6 +12,9 @@ class Business extends React.Component {
         </div>
         <h2>{this.props.business.name}</h2>
         <div className="Business-information">
+          <div className="Business-category">
+            {this.props.business.category.map(category => {return <p>{category.title}</p>})}
+          </div>
           <div className="Business-address">
             <p>{this.props.business.address}</p>
             <p>{this.props.business.city}</p>
