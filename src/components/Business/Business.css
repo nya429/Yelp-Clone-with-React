@@ -17,6 +17,13 @@
   font-weight: 600;
 }
 
+.Business-categories {
+  color: #a7874b;
+  margin-bottom: 1rem;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
 .Business-information {
   display: flex;
   justify-content: space-between;
