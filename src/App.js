@@ -23,15 +23,15 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      business:[],
+      business:[]
     };
-    this.searchYelp = this.searchYelp.bind(this).then(busienss => this.setState());
+    this.searchYelp = this.searchYelp.bind(this);
   }
 
   searchYelp(term,location,sortBy) {
-    Yelp.searchYelp(term,location,sortBy).then(busienss => {   //why then
+    Yelp.search(term,location,sortBy).then(businesses => {   //why then
       this.setState({
-        businesses:busienss
+        businesses:businesses
       });
     });
   }
