@@ -22,7 +22,7 @@ const Yelp = {
               headers:{Authorization:`Bearer ${accessToken}`}
           });
         }).then(
-          response => response.json()  //return
+          response => response.json()
         ).then(
           jsonResponse =>{
             if(jsonResponse.businesses) {
@@ -34,7 +34,7 @@ const Yelp = {
                   address:business.location.address1,
                   city:business.location.city,
                   state:business.location.state,
-                  zipCode:business.zip_code,
+                  zipCode:business.location.zip_code,
                   category:business.categories,
                   rating:business.rating,
                   reviewCount:business.review_count
