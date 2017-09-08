@@ -3,6 +3,16 @@ import './Business.css';
 
 
 class Business extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        categories:[]
+      };
+  }
+
+  renderCategory() {
+    this.setState({categories:this.props.business.category});
+  }
 
   render() {
     return(
@@ -12,8 +22,9 @@ class Business extends React.Component {
         </div>
         <h2>{this.props.business.name}</h2>
         <div className="Business-information">
-          <div className="Business-category">
-            {this.props.business.category.map(category => {return <p>{category.title}</p>})}
+          <div className="Business-category" renderCategory={this.renderCategory.bind(this)}>
+            //{this.props.business.category.map(category => {return <p>{category.title}</p>})}
+            {this.state.categories.map((category,index) => {return <p key={index}>{category.title}</p>})}
           </div>
           <div className="Business-address">
             <p>{this.props.business.address}</p>
@@ -29,5 +40,6 @@ class Business extends React.Component {
       </div>);
     }
   }
+
 
   export default Business;
