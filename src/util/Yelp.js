@@ -3,12 +3,12 @@ const secret = '5DwO4dZ52wIzKncCXRl7xVgdZeiNJveKsvTRSSrcT7HewzHtk5OcNvftCKbnuwQt
 let accessToken;
 
 const Yelp = {
-      getAccessToken() {  //why use dot ? .method()
+      getAccessToken() {  
         if (accessToken) {
-          return new Promise(resolve => resolve(accessToken));////why ask a promise to hold the place? & why
+          return new Promise(resolve => resolve(accessToken));
           }
           let url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/oauth2/token?grant_type=client_credentials&client_id=${clientId}&client_secret=${secret}`;
-          return fetch(url,{method:'POST'}).then(response => {return response.json();}).then( //why not implicit
+          return fetch(url,{method:'POST'}).then(response => {return response.json();}).then( 
             jsonResponse => {
                 accessToken = jsonResponse.access_token;
             });
